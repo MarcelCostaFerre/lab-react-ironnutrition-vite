@@ -3,7 +3,7 @@ import { useState } from "react";
 import FoodBox from "./FoodBox";
 import AddFoodForm from "./AddFoodForm";
 
-function FoodList() {
+function FoodList(props) {
   const [foods, setFoods] = useState(foodsJson);
   const addNewFood = (newFood) => {
     // Create a new array
@@ -24,7 +24,7 @@ function FoodList() {
     <>
       <AddFoodForm addNewFood={addNewFood} />
       <h2>Food List</h2>
-      {foods.map((food) => {
+      {props.foods.map((food) => {
         return <FoodBox key={food.id} food={food} deleteFood={deleteFood} />;
       })}
     </>
